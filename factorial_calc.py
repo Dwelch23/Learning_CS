@@ -1,8 +1,4 @@
-def add(num1, num2):
-    return num1 + num2
-
-sum = add(3, 4)
-print(sum)
+# factorial calcuator
 
 def factorial(num):
     if num == 1:
