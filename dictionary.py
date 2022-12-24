@@ -6,6 +6,9 @@ siblings = {
     "Hunter": 21
 }
 
+cur_year = 2022
+
+
 # Update dictionay of our sibling 
 # Tell age of sibling after 1 year is added to their age
 # input is a string
@@ -18,9 +21,27 @@ def birthday(person):
     else:
         return "Person is not a sibling"
 
-print(siblings)
-choice = input("Choose sibling: ")
+# Adds one to their age for every sibling 
+# output updated dictionary
+def increment_year():
+    for person in siblings:
+        birthday(person)
+    return siblings
 
 
-print("This will be the age of", choice, ": ", birthday(choice))
+# The function will update the dictionar of the difference of years to all siblings ages
+# input is the integer
+# output is a updated dictionary
+def set_year(year):
+    difference = int(year) - cur_year
+    num = 0
+    while num < difference:
+        increment_year()
+        num += 1
+    return siblings
+    
+
 print(siblings)
+
+user_year = input("Choice of year: ")
+print(set_year(user_year))
