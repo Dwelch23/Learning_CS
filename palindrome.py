@@ -5,22 +5,29 @@ user_word = input("ENTER WORD HERE: ")
 def get_backwards_word(word):
     index = len(word) - 1
     output = ""
-
     while index >= 0: 
         letter = word[index]
         output += letter
-        index = index - 1 
+        index -= 1
     return output
 
 def is_palindrome(word):
+    word = word.lower()
     backwards_word = get_backwards_word(word)
-    if word == backwards_word:
-        return True 
+    return word == backwards_word
+
+
+def is_pal(word):
+    word = word.lower()
+    if len(word) == 1 or len(word) == 0:
+        return True
+    elif word[0] != word[len(word) - 1]:
+        return False
     else:
-        return False 
+        return is_pal(word[1 : len(word) - 2])
 
 
-pal = is_palindrome(user_word)
+pal = is_pal(user_word)
 if pal == True:
     print(user_word, " IS A PaLINDROME")
 else:
